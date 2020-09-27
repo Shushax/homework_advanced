@@ -4,33 +4,39 @@ let array = [];
 let myArray = [];
 
 for (let prop in obj) {
-    if (prop == prop1) {
-        let myObj = {};
-        myObj.key = prop;
-        myObj.value = obj[prop];
-        myArray.push(myObj);
+    if (obj.hasOwnProperty(prop)) {
+        if (prop == prop1) {
+            let myObj = {};
+            myObj.key = prop;
+            myObj.value = obj[prop];
+            myArray.push(myObj);
+        }
     }
+    
 }
 
 for (let prop in obj) {
-    if (prop == prop2) {
+    if (obj.hasOwnProperty(prop)) {
+        if (prop == prop2) {
+            let myObj = {};
+            myObj.key = prop;
+            myObj.value = obj[prop];
+            myArray.push(myObj);
+        }
+    }
+    
+}
+
+for (let prop in obj) {
+    if (prop == prop1 || prop == prop2) {
+        continue;
+    }
+    if (obj.hasOwnProperty(prop)) {
         let myObj = {};
         myObj.key = prop;
         myObj.value = obj[prop];
-        myArray.push(myObj);
+        array.push(myObj);
     }
-}
-
-
-
-delete obj[prop1];
-delete obj[prop2];
-
-for (let prop in obj) {
-    let myObj = {};
-    myObj.key = prop;
-    myObj.value = obj[prop];
-    array.push(myObj);
 }
 
 array.sort(function(a, b){
